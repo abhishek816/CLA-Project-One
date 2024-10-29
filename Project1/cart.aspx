@@ -104,6 +104,9 @@
 
 
     }
+         .auto-style1 {
+             text-align: center;
+         }
          </style>
 </head>
 <body>
@@ -120,17 +123,35 @@
         <a href="#" class="search-icon">🔍</a>
         </div>
         </div>
+        <br />
+        <div class="auto-style1">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="cart_id" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
                 <asp:CommandField ShowDeleteButton="True" />
                 <asp:ImageField DataImageUrlField="p_photo" HeaderText="Product Image">
+                    <ControlStyle Height="80px" Width="80px" />
                 </asp:ImageField>
                 <asp:BoundField DataField="p_name" HeaderText="Product Name" />
                 <asp:BoundField DataField="p_qty" HeaderText="Quantity" />
                 <asp:BoundField DataField="p_price" HeaderText="Total Price" />
             </Columns>
         </asp:GridView>
+        </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buy Products" />
+&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+&nbsp;<br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
 </body>
 </html>

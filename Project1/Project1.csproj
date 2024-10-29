@@ -162,6 +162,7 @@
     <Content Include="js\slider-setting.js" />
     <Content Include="laptop.html" />
     <Content Include="Login.aspx" />
+    <Content Include="order_view.aspx" />
     <Content Include="product.html" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductView.aspx" />
@@ -204,6 +205,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="order_view.aspx.cs">
+      <DependentUpon>order_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="order_view.aspx.designer.cs">
+      <DependentUpon>order_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>

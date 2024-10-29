@@ -73,5 +73,52 @@ namespace Project1
             GridView1.EditIndex = -1;
             bind_grid();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string s = "select max(cart_id) from cart_tab";
+            string ccid=cls.fun_exescalar(s);
+            int ns = Convert.ToInt32(ccid);
+            DateTime bdate = DateTime.Now;
+            string dt = bdate.ToString("yyyy-MM-dd");
+
+            int proqnty = 0;
+            float gp = 0;
+            string pname = "";
+            List<(int pid2, string pname, int proqnty, float gp)> cartData = new List<(int, string, int, float)>();
+
+            for (int i = 1; i <= ns; i++)
+            {
+                string sel = "select * from cart_tab join tab_product on cart_tab.p_id=tab_product.p_id where cart_id=" + i + " ";
+                SqlDataReader dr = cls.fun_exereader(sel);
+                while (dr.Read())
+                {
+                    string prqnty = dr["p_qty"].ToString();
+                    string tprice = dr["p_price"].ToString();
+                    string pid = dr["p_id"].ToString();
+                    int pid2 = Convert.ToInt32(pid);
+                    pname = dr["p_name"].ToString();
+                    proqnty = Convert.ToInt32(prqnty);
+                    gp = Convert.ToInt32(tprice);
+                    cartData.Add((pid2, pname, proqnty, gp));
+                }
+            }
+            foreach (var item in cartData)
+            {
+                string ins = "insert into order_tab values(" + Session["user_id"] + "," + item.pid2 + ",'" + item.pname + "'," + item.gp + "," + item.proqnty + ",'" + dt + "','available')";
+                int a = cls.fun_exenonquery(ins);
+
+                string del = "delete from cart_tab where p_id = " + item.pid2;
+                int b = cls.fun_exenonquery(del);
+
+                if (a == 1 && b == 1)
+                {
+                    Label1.Text = "Order Received and Cart empty!";
+                }
+            }
+            bind_grid();
+            Response.Redirect("order_view.aspx");
+        }
+        
     }
 }
