@@ -61,7 +61,7 @@ namespace Project1
             int n = cls.fun_exenonquery(ins);
             if (n == 1)
             {
-                Response.Redirect("account.aspx");
+                Response.Redirect("acnt_details.aspx");
             }
 
 

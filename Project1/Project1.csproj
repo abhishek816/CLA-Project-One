@@ -44,6 +44,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,10 +70,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.html" />
+    <Content Include="acnt_details.aspx" />
     <Content Include="admin_home.aspx" />
     <Content Include="admin_reg.aspx" />
     <Content Include="cart.aspx" />
     <Content Include="computer.html" />
+    <Content Include="Connected Services\blncfetch\Project1.blncfetch.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\blncfetch\Service.disco" />
+    <None Include="Connected Services\blncfetch\configuration91.svcinfo" />
+    <None Include="Connected Services\blncfetch\configuration.svcinfo" />
+    <None Include="Connected Services\blncfetch\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="contact.html" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap-grid.css" />
@@ -170,6 +183,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acnt_details.aspx.cs">
+      <DependentUpon>acnt_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="acnt_details.aspx.designer.cs">
+      <DependentUpon>acnt_details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin_home.aspx.cs">
       <DependentUpon>admin_home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,6 +212,11 @@
       <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="conclass.cs" />
+    <Compile Include="Connected Services\blncfetch\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -283,6 +308,16 @@
     <Content Include="js\revolution\fonts\revicons\revicons90c6.ttf" />
     <Content Include="js\revolution\fonts\revicons\revicons90c6.woff" />
     <Content Include="js\revolution\js\.DS_Store" />
+    <None Include="Connected Services\blncfetch\Service.wsdl" />
+    <None Include="Connected Services\blncfetch\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\blncfetch\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\blncfetch\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -295,6 +330,12 @@
     <Folder Include="catimg\" />
     <Folder Include="icon\" />
     <Folder Include="proimg\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\blncfetch\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
